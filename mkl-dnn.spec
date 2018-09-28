@@ -4,7 +4,7 @@
 #
 Name     : mkl-dnn
 Version  : 0.16
-Release  : 1
+Release  : 2
 URL      : https://github.com/intel/mkl-dnn/archive/v0.16.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v0.16.tar.gz
 Summary  : No detailed summary available
@@ -51,17 +51,45 @@ license components for the mkl-dnn package.
 
 %prep
 %setup -q -n mkl-dnn-0.16
+pushd ..
+cp -a mkl-dnn-0.16 buildavx2
+popd
+pushd ..
+cp -a mkl-dnn-0.16 buildavx512
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538150440
+export SOURCE_DATE_EPOCH=1538155316
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
+popd
+mkdir -p clr-build-avx2
+pushd clr-build-avx2
+export CFLAGS="$CFLAGS -O3 -march=haswell "
+export FCFLAGS="$CFLAGS -O3 -march=haswell "
+export FFLAGS="$CFLAGS -O3 -march=haswell "
+export CXXFLAGS="$CXXFLAGS -O3 -march=haswell "
+export CFLAGS="$CFLAGS -march=haswell -m64"
+export CXXFLAGS="$CXXFLAGS -march=haswell -m64"
+%cmake ..
+make VERBOSE=1  %{?_smp_mflags}  || :
+popd
+mkdir -p clr-build-avx512
+pushd clr-build-avx512
+export CFLAGS="$CFLAGS -O3 -march=skylake-avx512 "
+export FCFLAGS="$CFLAGS -O3 -march=skylake-avx512 "
+export FFLAGS="$CFLAGS -O3 -march=skylake-avx512 "
+export CXXFLAGS="$CXXFLAGS -O3 -march=skylake-avx512 "
+export CFLAGS="$CFLAGS -march=skylake-avx512 -m64 "
+export CXXFLAGS="$CXXFLAGS -march=skylake-avx512 -m64 "
+%cmake ..
+make VERBOSE=1  %{?_smp_mflags}  || :
 popd
 
 %check
@@ -70,13 +98,23 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
+cd ../clr-build-avx2;
+make test
+cd ../clr-build-avx512;
+make test
 
 %install
-export SOURCE_DATE_EPOCH=1538150440
+export SOURCE_DATE_EPOCH=1538155316
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/mkl-dnn
 cp LICENSE %{buildroot}/usr/share/doc/mkl-dnn/LICENSE
 cp tests/gtests/gtest/LICENSE %{buildroot}/usr/share/doc/mkl-dnn/tests_gtests_gtest_LICENSE
+pushd clr-build-avx512
+%make_install_avx512  || :
+popd
+pushd clr-build-avx2
+%make_install_avx2  || :
+popd
 pushd clr-build
 %make_install
 popd
@@ -88,10 +126,16 @@ popd
 %defattr(-,root,root,-)
 /usr/include/*.h
 /usr/include/*.hpp
+/usr/lib64/haswell/libmkldnn.so
 /usr/lib64/libmkldnn.so
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/haswell/avx512_1/libmkldnn.so
+/usr/lib64/haswell/avx512_1/libmkldnn.so.0
+/usr/lib64/haswell/avx512_1/libmkldnn.so.0.16.0
+/usr/lib64/haswell/libmkldnn.so.0
+/usr/lib64/haswell/libmkldnn.so.0.16.0
 /usr/lib64/libmkldnn.so.0
 /usr/lib64/libmkldnn.so.0.16.0
 
