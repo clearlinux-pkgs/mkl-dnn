@@ -4,7 +4,7 @@
 #
 Name     : mkl-dnn
 Version  : 0.16
-Release  : 3
+Release  : 4
 URL      : https://github.com/intel/mkl-dnn/archive/v0.16.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v0.16.tar.gz
 Summary  : No detailed summary available
@@ -16,6 +16,7 @@ BuildRequires : buildreq-cmake
 BuildRequires : cmake
 BuildRequires : doxygen
 BuildRequires : glibc-dev
+Patch1: no-native.patch
 
 %description
 > Intel MKL-DNN repository migrated to [https://github.com/intel/mkl-dnn](https://github.com/intel/mkl-dnn).
@@ -51,6 +52,7 @@ license components for the mkl-dnn package.
 
 %prep
 %setup -q -n mkl-dnn-0.16
+%patch1 -p1
 pushd ..
 cp -a mkl-dnn-0.16 buildavx2
 popd
@@ -60,7 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538156464
+export SOURCE_DATE_EPOCH=1538156718
 mkdir -p clr-build
 pushd clr-build
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
@@ -83,7 +85,7 @@ make VERBOSE=1  %{?_smp_mflags}  || :
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1538156464
+export SOURCE_DATE_EPOCH=1538156718
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/mkl-dnn
 cp LICENSE %{buildroot}/usr/share/doc/mkl-dnn/LICENSE

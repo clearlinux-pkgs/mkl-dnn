@@ -1,0 +1,12 @@
+--- mkl-dnn-0.16/cmake/platform.cmake~	2018-08-14 21:20:28.000000000 +0000
++++ mkl-dnn-0.16/cmake/platform.cmake	2018-09-28 17:41:19.124376485 +0000
+@@ -89,9 +89,6 @@
+         set(CMAKE_CCXX_NOWARN_FLAGS
+             "${CMAKE_CCXX_NOWARN_FLAGS} -Wno-pass-failed")
+     elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+-        if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 5.0)
+-            set(DEF_ARCH_OPT_FLAGS "-march=native -mtune=native")
+-        endif()
+         if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 6.0)
+             # suppress warning on assumptions made regarding overflow (#146)
+             set(CMAKE_CCXX_NOWARN_FLAGS
