@@ -4,14 +4,14 @@
 #
 Name     : mkl-dnn
 Version  : 0.16
-Release  : 5
+Release  : 6
 URL      : https://github.com/intel/mkl-dnn/archive/v0.16.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v0.16.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause
-Requires: mkl-dnn-lib
-Requires: mkl-dnn-license
+Requires: mkl-dnn-lib = %{version}-%{release}
+Requires: mkl-dnn-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : cmake
 BuildRequires : doxygen
@@ -23,6 +23,14 @@ Patch1: no-native.patch
 > The old address will continue to be available and will redirect to the new repo.
 > Please update your links.
 
+%package abi
+Summary: abi components for the mkl-dnn package.
+Group: Default
+
+%description abi
+abi components for the mkl-dnn package.
+
+
 %package dev
 Summary: dev components for the mkl-dnn package.
 Group: Development
@@ -31,6 +39,14 @@ Provides: mkl-dnn-devel = %{version}-%{release}
 
 %description dev
 dev components for the mkl-dnn package.
+
+
+%package doc
+Summary: doc components for the mkl-dnn package.
+Group: Documentation
+
+%description doc
+doc components for the mkl-dnn package.
 
 
 %package lib
@@ -65,7 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538156931
+export SOURCE_DATE_EPOCH=1541616468
 mkdir -p clr-build
 pushd clr-build
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
@@ -73,7 +89,7 @@ export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-i
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 mkdir -p clr-build-avx2
 pushd clr-build-avx2
@@ -84,7 +100,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semanti
 export CFLAGS="$CFLAGS -march=haswell -m64"
 export CXXFLAGS="$CXXFLAGS -march=haswell -m64"
 %cmake ..
-make VERBOSE=1  %{?_smp_mflags}  || :
+make  %{?_smp_mflags} VERBOSE=1
 popd
 mkdir -p clr-build-avx512
 pushd clr-build-avx512
@@ -95,15 +111,16 @@ export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semanti
 export CFLAGS="$CFLAGS -march=skylake-avx512 -m64 "
 export CXXFLAGS="$CXXFLAGS -march=skylake-avx512 -m64 "
 %cmake ..
-make VERBOSE=1  %{?_smp_mflags}  || :
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1538156931
+export SOURCE_DATE_EPOCH=1541616468
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/mkl-dnn
-cp LICENSE %{buildroot}/usr/share/doc/mkl-dnn/LICENSE
-cp tests/gtests/gtest/LICENSE %{buildroot}/usr/share/doc/mkl-dnn/tests_gtests_gtest_LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
+cp LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/LICENSE
+cp src/cpu/xbyak/COPYRIGHT %{buildroot}/usr/share/package-licenses/mkl-dnn/src_cpu_xbyak_COPYRIGHT
+cp tests/gtests/gtest/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/tests_gtests_gtest_LICENSE
 pushd clr-build-avx512
 %make_install_avx512  || :
 popd
@@ -117,16 +134,25 @@ popd
 %files
 %defattr(-,root,root,-)
 
+%files abi
+%defattr(-,root,root,-)
+/usr/share/abi/libmkldnn.so.0.16.0.abi
+/usr/share/abi/libmkldnn.so.0.abi
+
 %files dev
 %defattr(-,root,root,-)
 /usr/include/*.h
 /usr/include/*.hpp
+/usr/lib64/haswell/avx512_1/libmkldnn.so
 /usr/lib64/haswell/libmkldnn.so
 /usr/lib64/libmkldnn.so
 
+%files doc
+%defattr(0644,root,root,0755)
+/usr/share/doc/mkldnn/LICENSE
+
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/haswell/avx512_1/libmkldnn.so
 /usr/lib64/haswell/avx512_1/libmkldnn.so.0
 /usr/lib64/haswell/avx512_1/libmkldnn.so.0.16.0
 /usr/lib64/haswell/libmkldnn.so.0
@@ -136,6 +162,6 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/doc/mkl-dnn/LICENSE
-/usr/share/doc/mkl-dnn/tests_gtests_gtest_LICENSE
-/usr/share/doc/mkldnn/LICENSE
+/usr/share/package-licenses/mkl-dnn/LICENSE
+/usr/share/package-licenses/mkl-dnn/src_cpu_xbyak_COPYRIGHT
+/usr/share/package-licenses/mkl-dnn/tests_gtests_gtest_LICENSE
