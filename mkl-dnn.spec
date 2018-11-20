@@ -4,7 +4,7 @@
 #
 Name     : mkl-dnn
 Version  : 0.16
-Release  : 6
+Release  : 7
 URL      : https://github.com/intel/mkl-dnn/archive/v0.16.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v0.16.tar.gz
 Summary  : No detailed summary available
@@ -22,14 +22,6 @@ Patch1: no-native.patch
 > Intel MKL-DNN repository migrated to [https://github.com/intel/mkl-dnn](https://github.com/intel/mkl-dnn).
 > The old address will continue to be available and will redirect to the new repo.
 > Please update your links.
-
-%package abi
-Summary: abi components for the mkl-dnn package.
-Group: Default
-
-%description abi
-abi components for the mkl-dnn package.
-
 
 %package dev
 Summary: dev components for the mkl-dnn package.
@@ -81,7 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541616468
+export SOURCE_DATE_EPOCH=1542749019
 mkdir -p clr-build
 pushd clr-build
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
@@ -115,7 +107,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1541616468
+export SOURCE_DATE_EPOCH=1542749019
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
 cp LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/LICENSE
@@ -133,11 +125,6 @@ popd
 
 %files
 %defattr(-,root,root,-)
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/libmkldnn.so.0.16.0.abi
-/usr/share/abi/libmkldnn.so.0.abi
 
 %files dev
 %defattr(-,root,root,-)
