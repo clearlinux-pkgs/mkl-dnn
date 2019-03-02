@@ -1,9 +1,9 @@
-libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t17EL18mkldnn_prop_kind_t128EEEfffff
-libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t17EL18mkldnn_prop_kind_t64EEEfffff
-libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t8EL18mkldnn_prop_kind_t128EEEfffff
-libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t8EL18mkldnn_prop_kind_t64EEEfffff
-libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t9EL18mkldnn_prop_kind_t128EEEfffff
-libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t9EL18mkldnn_prop_kind_t64EEEfffff
+libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t175EL18mkldnn_prop_kind_t128EEEfffff
+libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t175EL18mkldnn_prop_kind_t64EEEfffff
+libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t31EL18mkldnn_prop_kind_t128EEEfffff
+libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t31EL18mkldnn_prop_kind_t64EEEfffff
+libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t47EL18mkldnn_prop_kind_t128EEEfffff
+libmkldnn.so.0:_ZN6mkldnn4impl3cpu10activationIL17mkldnn_alg_kind_t47EL18mkldnn_prop_kind_t64EEEfffff
 libmkldnn.so.0:mkldnn_alg_kind2str
 libmkldnn.so.0:mkldnn_batch_normalization_backward_desc_init
 libmkldnn.so.0:mkldnn_batch_normalization_forward_desc_init
@@ -11,7 +11,6 @@ libmkldnn.so.0:mkldnn_concat_primitive_desc_create
 libmkldnn.so.0:mkldnn_convolution_backward_data_desc_init
 libmkldnn.so.0:mkldnn_convolution_backward_weights_desc_init
 libmkldnn.so.0:mkldnn_convolution_forward_desc_init
-libmkldnn.so.0:mkldnn_convolution_relu_desc_init
 libmkldnn.so.0:mkldnn_deconvolution_backward_data_desc_init
 libmkldnn.so.0:mkldnn_deconvolution_backward_weights_desc_init
 libmkldnn.so.0:mkldnn_deconvolution_forward_desc_init
@@ -63,6 +62,8 @@ libmkldnn.so.0:mkldnn_primitive_attr_get_post_ops
 libmkldnn.so.0:mkldnn_primitive_attr_set_int_output_round_mode
 libmkldnn.so.0:mkldnn_primitive_attr_set_output_scales
 libmkldnn.so.0:mkldnn_primitive_attr_set_post_ops
+libmkldnn.so.0:mkldnn_primitive_attr_set_rnn_data_qparams
+libmkldnn.so.0:mkldnn_primitive_attr_set_rnn_weights_qparams
 libmkldnn.so.0:mkldnn_primitive_create
 libmkldnn.so.0:mkldnn_primitive_desc_clone
 libmkldnn.so.0:mkldnn_primitive_desc_create
@@ -83,8 +84,6 @@ libmkldnn.so.0:mkldnn_primitive_get_input_at
 libmkldnn.so.0:mkldnn_primitive_get_output
 libmkldnn.so.0:mkldnn_primitive_get_primitive_desc
 libmkldnn.so.0:mkldnn_prop_kind2str
-libmkldnn.so.0:mkldnn_relu_backward_desc_init
-libmkldnn.so.0:mkldnn_relu_forward_desc_init
 libmkldnn.so.0:mkldnn_reorder_primitive_desc_create
 libmkldnn.so.0:mkldnn_reorder_primitive_desc_create_v2
 libmkldnn.so.0:mkldnn_rmode2str
@@ -92,7 +91,10 @@ libmkldnn.so.0:mkldnn_rnn_backward_desc_init
 libmkldnn.so.0:mkldnn_rnn_cell_desc_init
 libmkldnn.so.0:mkldnn_rnn_cell_get_gates_count
 libmkldnn.so.0:mkldnn_rnn_cell_get_states_count
+libmkldnn.so.0:mkldnn_rnn_direction2str
 libmkldnn.so.0:mkldnn_rnn_forward_desc_init
+libmkldnn.so.0:mkldnn_set_jit_dump
+libmkldnn.so.0:mkldnn_set_verbose
 libmkldnn.so.0:mkldnn_sgemm
 libmkldnn.so.0:mkldnn_shuffle_backward_desc_init
 libmkldnn.so.0:mkldnn_shuffle_forward_desc_init
@@ -105,5 +107,5 @@ libmkldnn.so.0:mkldnn_stream_rerun
 libmkldnn.so.0:mkldnn_stream_submit
 libmkldnn.so.0:mkldnn_stream_wait
 libmkldnn.so.0:mkldnn_sum_primitive_desc_create
-libmkldnn.so.0:mkldnn_verbose_set
+libmkldnn.so.0:mkldnn_version
 libmkldnn.so.0:mkldnn_view_primitive_desc_create
