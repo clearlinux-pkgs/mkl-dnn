@@ -4,34 +4,31 @@
 #
 Name     : mkl-dnn
 Version  : 1.0.1
-Release  : 18
+Release  : 19
 URL      : https://github.com/intel/mkl-dnn/archive/v1.0.1/mkl-dnn-1.0.1.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v1.0.1/mkl-dnn-1.0.1.tar.gz
-Summary  : Intel® Math Kernel Library for Deep Neural Networks
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause
 Requires: mkl-dnn-lib = %{version}-%{release}
 Requires: mkl-dnn-license = %{version}-%{release}
-BuildRequires : beignet-dev
 BuildRequires : buildreq-cmake
 BuildRequires : cmake
 BuildRequires : doxygen
 BuildRequires : git
 BuildRequires : glibc-dev
+BuildRequires : opencl-headers-dev
 Patch1: no-native.patch
 
 %description
 # Intel(R) Math Kernel Library for Deep Neural Networks (Intel(R) MKL-DNN)
-> **Note**
-> Version 1.0 brings incompatible changes to the 0.20 version. Please read
-> [Version 1.0 Transition Guide](https://intel.github.io/mkl-dnn/dev_guide_transition_to_v1.html).
+![v1.0 gold](https://img.shields.io/badge/v1.0-gold-green.svg)
 
 %package dev
 Summary: dev components for the mkl-dnn package.
 Group: Development
 Requires: mkl-dnn-lib = %{version}-%{release}
 Provides: mkl-dnn-devel = %{version}-%{release}
-Requires: mkl-dnn = %{version}-%{release}
 Requires: mkl-dnn = %{version}-%{release}
 
 %description dev
@@ -72,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564512103
+export SOURCE_DATE_EPOCH=1564519804
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -118,7 +115,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1564512103
+export SOURCE_DATE_EPOCH=1564519804
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
 cp LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/LICENSE
