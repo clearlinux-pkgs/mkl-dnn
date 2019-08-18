@@ -4,7 +4,7 @@
 #
 Name     : mkl-dnn
 Version  : 1.0.2
-Release  : 20
+Release  : 21
 URL      : https://github.com/intel/mkl-dnn/archive/v1.0.2/mkl-dnn-1.0.2.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v1.0.2/mkl-dnn-1.0.2.tar.gz
 Summary  : Intel® Math Kernel Library for Deep Neural Networks
