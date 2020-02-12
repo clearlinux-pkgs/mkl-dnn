@@ -1,0 +1,25 @@
+--- mkl-dnn-1.2/CMakeLists.txt~	2020-01-24 21:54:36.000000000 +0000
++++ mkl-dnn-1.2/CMakeLists.txt	2020-02-12 14:27:25.305053813 +0000
+@@ -78,7 +78,7 @@
+ 
+ if(UNIX OR MINGW)
+     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
+-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+ endif()
+ 
+ include("cmake/mkldnn_compat.cmake")
+--- mkl-dnn-1.2/cmake/SDL.cmake~	2020-01-24 21:54:36.000000000 +0000
++++ mkl-dnn-1.2/cmake/SDL.cmake	2020-02-12 15:07:43.773020141 +0000
+@@ -28,11 +28,6 @@
+     append(CMAKE_CXX_FLAGS_RELEASE "-D_FORTIFY_SOURCE=2")
+     append(CMAKE_C_FLAGS_RELEASE "-D_FORTIFY_SOURCE=2")
+     if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+-        if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 4.9)
+-            append(CMAKE_CCXX_FLAGS "-fstack-protector-all")
+-        else()
+-            append(CMAKE_CCXX_FLAGS "-fstack-protector-strong")
+-        endif()
+ 
+         # GCC might be very paranoid for partial structure initialization, e.g.
+         #   struct { int a, b; } s = { 0, };
