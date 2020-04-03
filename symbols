@@ -30,6 +30,7 @@ libdnnl.so.1:dnnl_concat_primitive_desc_create
 libdnnl.so.1:dnnl_convolution_backward_data_desc_init
 libdnnl.so.1:dnnl_convolution_backward_weights_desc_init
 libdnnl.so.1:dnnl_convolution_forward_desc_init
+libdnnl.so.1:dnnl_cpu_isa2str
 libdnnl.so.1:dnnl_deconvolution_backward_data_desc_init
 libdnnl.so.1:dnnl_deconvolution_backward_weights_desc_init
 libdnnl.so.1:dnnl_deconvolution_forward_desc_init
@@ -66,7 +67,9 @@ libdnnl.so.1:dnnl_logsoftmax_forward_desc_init
 libdnnl.so.1:dnnl_lrn_backward_desc_init
 libdnnl.so.1:dnnl_lrn_forward_desc_init
 libdnnl.so.1:dnnl_lstm_backward_desc_init
+libdnnl.so.1:dnnl_lstm_backward_desc_init_v2
 libdnnl.so.1:dnnl_lstm_forward_desc_init
+libdnnl.so.1:dnnl_lstm_forward_desc_init_v2
 libdnnl.so.1:dnnl_matmul_desc_init
 libdnnl.so.1:dnnl_md2dim_str
 libdnnl.so.1:dnnl_md2fmt_str
@@ -76,6 +79,7 @@ libdnnl.so.1:dnnl_memory_desc_get_size
 libdnnl.so.1:dnnl_memory_desc_init_by_strides
 libdnnl.so.1:dnnl_memory_desc_init_by_tag
 libdnnl.so.1:dnnl_memory_desc_init_submemory
+libdnnl.so.1:dnnl_memory_desc_permute_axes
 libdnnl.so.1:dnnl_memory_desc_reshape
 libdnnl.so.1:dnnl_memory_destroy
 libdnnl.so.1:dnnl_memory_get_data_handle
@@ -86,11 +90,15 @@ libdnnl.so.1:dnnl_memory_set_data_handle
 libdnnl.so.1:dnnl_memory_unmap_data
 libdnnl.so.1:dnnl_pooling_backward_desc_init
 libdnnl.so.1:dnnl_pooling_forward_desc_init
+libdnnl.so.1:dnnl_post_ops_append_dw_k3s1p1
+libdnnl.so.1:dnnl_post_ops_append_dw_k3s2p1
 libdnnl.so.1:dnnl_post_ops_append_eltwise
 libdnnl.so.1:dnnl_post_ops_append_sum
 libdnnl.so.1:dnnl_post_ops_create
 libdnnl.so.1:dnnl_post_ops_destroy
 libdnnl.so.1:dnnl_post_ops_get_kind
+libdnnl.so.1:dnnl_post_ops_get_params_dw_k3s1p1
+libdnnl.so.1:dnnl_post_ops_get_params_dw_k3s2p1
 libdnnl.so.1:dnnl_post_ops_get_params_eltwise
 libdnnl.so.1:dnnl_post_ops_get_params_sum
 libdnnl.so.1:dnnl_post_ops_len
