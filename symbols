@@ -21,7 +21,7 @@ libdnnl.so.1:_ZN4dnnl4impl3cpu24gemm_bf16bf16f32_computeEPKcS3_PKlS5_S5_PKNS0_10
 libdnnl.so.1:_ZN4dnnl4impl3cpu26gemm_s8s8s32_pack_get_sizeEPKcS3_S3_PKlS5_S5_S5_S5_PmPb
 libdnnl.so.1:_ZN4dnnl4impl3cpu26gemm_s8u8s32_pack_get_sizeEPKcS3_S3_PKlS5_S5_S5_S5_PmPb
 libdnnl.so.1:_ZN4dnnl4impl3cpu30gemm_bf16bf16f32_pack_get_sizeEPKcS3_S3_PKlS5_S5_S5_S5_PmPb
-libdnnl.so.1:_ZN4dnnl4impl3cpu3x6415get_max_cpu_isaEb
+libdnnl.so.1:_ZN4dnnl4impl3cpu3x6420get_max_cpu_isa_maskEb
 libdnnl.so.1:_ZN4dnnl4impl3cpu8platform21has_data_type_supportE16dnnl_data_type_t
 libdnnl.so.1:_ZNK4dnnl4impl10bfloat16_tcvfEv
 libdnnl.so.1:dnnl_alg_kind2str
@@ -55,6 +55,7 @@ libdnnl.so.1:dnnl_fmt_tag2str
 libdnnl.so.1:dnnl_gemm_bf16bf16f32
 libdnnl.so.1:dnnl_gemm_s8s8s32
 libdnnl.so.1:dnnl_gemm_u8s8s32
+libdnnl.so.1:dnnl_get_effective_cpu_isa
 libdnnl.so.1:dnnl_get_primitive_cache_capacity
 libdnnl.so.1:dnnl_gru_backward_desc_init
 libdnnl.so.1:dnnl_gru_forward_desc_init
@@ -100,6 +101,7 @@ libdnnl.so.1:dnnl_post_ops_append_dw_k3s1p1
 libdnnl.so.1:dnnl_post_ops_append_dw_k3s2p1
 libdnnl.so.1:dnnl_post_ops_append_eltwise
 libdnnl.so.1:dnnl_post_ops_append_sum
+libdnnl.so.1:dnnl_post_ops_append_sum_v2
 libdnnl.so.1:dnnl_post_ops_create
 libdnnl.so.1:dnnl_post_ops_destroy
 libdnnl.so.1:dnnl_post_ops_get_kind
@@ -107,6 +109,7 @@ libdnnl.so.1:dnnl_post_ops_get_params_dw_k3s1p1
 libdnnl.so.1:dnnl_post_ops_get_params_dw_k3s2p1
 libdnnl.so.1:dnnl_post_ops_get_params_eltwise
 libdnnl.so.1:dnnl_post_ops_get_params_sum
+libdnnl.so.1:dnnl_post_ops_get_params_sum_v2
 libdnnl.so.1:dnnl_post_ops_len
 libdnnl.so.1:dnnl_prim_kind2str
 libdnnl.so.1:dnnl_primitive_attr_clone
