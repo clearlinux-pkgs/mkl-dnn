@@ -97,6 +97,9 @@ libdnnl.so.1:dnnl_memory_set_data_handle_v2
 libdnnl.so.1:dnnl_memory_unmap_data
 libdnnl.so.1:dnnl_pooling_backward_desc_init
 libdnnl.so.1:dnnl_pooling_forward_desc_init
+libdnnl.so.1:dnnl_pooling_v2_backward_desc_init
+libdnnl.so.1:dnnl_pooling_v2_forward_desc_init
+libdnnl.so.1:dnnl_post_ops_append_binary
 libdnnl.so.1:dnnl_post_ops_append_dw_k3s1p1
 libdnnl.so.1:dnnl_post_ops_append_dw_k3s2p1
 libdnnl.so.1:dnnl_post_ops_append_eltwise
@@ -105,6 +108,7 @@ libdnnl.so.1:dnnl_post_ops_append_sum_v2
 libdnnl.so.1:dnnl_post_ops_create
 libdnnl.so.1:dnnl_post_ops_destroy
 libdnnl.so.1:dnnl_post_ops_get_kind
+libdnnl.so.1:dnnl_post_ops_get_params_binary
 libdnnl.so.1:dnnl_post_ops_get_params_dw_k3s1p1
 libdnnl.so.1:dnnl_post_ops_get_params_dw_k3s2p1
 libdnnl.so.1:dnnl_post_ops_get_params_eltwise
@@ -143,6 +147,7 @@ libdnnl.so.1:dnnl_primitive_destroy
 libdnnl.so.1:dnnl_primitive_execute
 libdnnl.so.1:dnnl_primitive_get_primitive_desc
 libdnnl.so.1:dnnl_prop_kind2str
+libdnnl.so.1:dnnl_reduction_desc_init
 libdnnl.so.1:dnnl_reorder_primitive_desc_create
 libdnnl.so.1:dnnl_resampling_backward_desc_init
 libdnnl.so.1:dnnl_resampling_forward_desc_init
@@ -167,6 +172,7 @@ libdnnl.so.1:dnnl_stream_attr_destroy
 libdnnl.so.1:dnnl_stream_create
 libdnnl.so.1:dnnl_stream_create_v2
 libdnnl.so.1:dnnl_stream_destroy
+libdnnl.so.1:dnnl_stream_get_engine
 libdnnl.so.1:dnnl_stream_wait
 libdnnl.so.1:dnnl_sum_primitive_desc_create
 libdnnl.so.1:dnnl_vanilla_rnn_backward_desc_init
