@@ -36,6 +36,7 @@ libdnnl.so.2:dnnl_convolution_backward_weights_desc_init
 libdnnl.so.2:dnnl_convolution_forward_desc_init
 libdnnl.so.2:dnnl_cpu_isa2str
 libdnnl.so.2:dnnl_cpu_isa_hints2str
+libdnnl.so.2:dnnl_data_type_size
 libdnnl.so.2:dnnl_deconvolution_backward_data_desc_init
 libdnnl.so.2:dnnl_deconvolution_backward_weights_desc_init
 libdnnl.so.2:dnnl_deconvolution_forward_desc_init
