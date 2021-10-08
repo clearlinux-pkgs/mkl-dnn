@@ -1,5 +1,11 @@
 libdnnl.so.2:_Z35dnnl_primitive_attr_set_rnn_tparamsP19dnnl_primitive_attrblPKff
 libdnnl.so.2:_ZN4dnnl4impl10bfloat16_taSEf
+libdnnl.so.2:_ZN4dnnl4impl11parallel_ndElRKSt8functionIFvlEE
+libdnnl.so.2:_ZN4dnnl4impl11parallel_ndEllRKSt8functionIFvllEE
+libdnnl.so.2:_ZN4dnnl4impl11parallel_ndElllRKSt8functionIFvlllEE
+libdnnl.so.2:_ZN4dnnl4impl11parallel_ndEllllRKSt8functionIFvllllEE
+libdnnl.so.2:_ZN4dnnl4impl11parallel_ndElllllRKSt8functionIFvlllllEE
+libdnnl.so.2:_ZN4dnnl4impl11parallel_ndEllllllRKSt8functionIFvllllllEE
 libdnnl.so.2:_ZN4dnnl4impl14is_pd_in_cacheEPK19dnnl_primitive_desc
 libdnnl.so.2:_ZN4dnnl4impl21is_primitive_in_cacheEPK14dnnl_primitive
 libdnnl.so.2:_ZN4dnnl4impl24get_primitive_cache_sizeEPi
@@ -26,6 +32,7 @@ libdnnl.so.2:_ZN4dnnl4impl3cpu30gemm_bf16bf16f32_pack_get_sizeEPKcS3_S3_PKlS5_S5
 libdnnl.so.2:_ZN4dnnl4impl3cpu3x6413brgemm_attr_tC1Ev
 libdnnl.so.2:_ZN4dnnl4impl3cpu3x6413brgemm_attr_tC2Ev
 libdnnl.so.2:_ZN4dnnl4impl3cpu3x6416amx_tile_releaseEv
+libdnnl.so.2:_ZN4dnnl4impl3cpu3x6416brdgmm_desc_initEPNS2_8brgemm_tENS2_9cpu_isa_tENS2_19brgemm_batch_kind_tE16dnnl_data_type_tS7_bNS2_15brgemm_layout_tEffllllPKNS2_16brgemm_strides_tE
 libdnnl.so.2:_ZN4dnnl4impl3cpu3x6416brgemm_desc_initEPNS2_8brgemm_tENS2_9cpu_isa_tENS2_19brgemm_batch_kind_tE16dnnl_data_type_tS7_bbNS2_15brgemm_layout_tEffllllllPKNS2_16brgemm_strides_tE
 libdnnl.so.2:_ZN4dnnl4impl3cpu3x6417brgemm_init_tilesERKNS2_8brgemm_tEPc
 libdnnl.so.2:_ZN4dnnl4impl3cpu3x6417get_cpu_isa_hintsEb
@@ -37,6 +44,8 @@ libdnnl.so.2:_ZN4dnnl4impl3cpu3x6421brgemm_kernel_destroyEPNS2_15brgemm_kernel_t
 libdnnl.so.2:_ZN4dnnl4impl3cpu3x6421brgemm_kernel_executeEPKNS2_15brgemm_kernel_tEiPKNS2_22brgemm_batch_element_tEPvS9_
 libdnnl.so.2:_ZN4dnnl4impl3cpu8platform20prefer_ymm_requestedEv
 libdnnl.so.2:_ZN4dnnl4impl3cpu8platform21has_data_type_supportE16dnnl_data_type_t
+libdnnl.so.2:_ZN4dnnl4impl3cpu8platform25s8s8_weights_scale_factorEv
+libdnnl.so.2:_ZN4dnnl4impl8parallelEiRKSt8functionIFviiEE
 libdnnl.so.2:_ZNK4dnnl4impl10bfloat16_tcvfEv
 libdnnl.so.2:dnnl_alg_kind2str
 libdnnl.so.2:dnnl_batch_normalization_backward_desc_init
@@ -68,10 +77,12 @@ libdnnl.so.2:dnnl_engine_get_kind
 libdnnl.so.2:dnnl_engine_kind2str
 libdnnl.so.2:dnnl_fmt_kind2str
 libdnnl.so.2:dnnl_fmt_tag2str
+libdnnl.so.2:dnnl_fpmath_mode2str
 libdnnl.so.2:dnnl_gemm_bf16bf16f32
 libdnnl.so.2:dnnl_gemm_s8s8s32
 libdnnl.so.2:dnnl_gemm_u8s8s32
 libdnnl.so.2:dnnl_get_cpu_isa_hints
+libdnnl.so.2:dnnl_get_default_fpmath_mode
 libdnnl.so.2:dnnl_get_effective_cpu_isa
 libdnnl.so.2:dnnl_get_primitive_cache_capacity
 libdnnl.so.2:dnnl_gru_backward_desc_init
@@ -95,8 +106,6 @@ libdnnl.so.2:dnnl_lstm_forward_desc_init
 libdnnl.so.2:dnnl_lstm_forward_desc_init_v2
 libdnnl.so.2:dnnl_lstm_forward_desc_init_v3
 libdnnl.so.2:dnnl_matmul_desc_init
-libdnnl.so.2:dnnl_md2dim_str
-libdnnl.so.2:dnnl_md2fmt_str
 libdnnl.so.2:dnnl_memory_create
 libdnnl.so.2:dnnl_memory_desc_equal
 libdnnl.so.2:dnnl_memory_desc_get_size
@@ -121,8 +130,10 @@ libdnnl.so.2:dnnl_post_ops_append_binary
 libdnnl.so.2:dnnl_post_ops_append_dw_k3s1p1
 libdnnl.so.2:dnnl_post_ops_append_dw_k3s2p1
 libdnnl.so.2:dnnl_post_ops_append_eltwise
+libdnnl.so.2:dnnl_post_ops_append_prelu
 libdnnl.so.2:dnnl_post_ops_append_sum
 libdnnl.so.2:dnnl_post_ops_append_sum_v2
+libdnnl.so.2:dnnl_post_ops_append_sum_v3
 libdnnl.so.2:dnnl_post_ops_create
 libdnnl.so.2:dnnl_post_ops_destroy
 libdnnl.so.2:dnnl_post_ops_get_kind
@@ -130,8 +141,10 @@ libdnnl.so.2:dnnl_post_ops_get_params_binary
 libdnnl.so.2:dnnl_post_ops_get_params_dw_k3s1p1
 libdnnl.so.2:dnnl_post_ops_get_params_dw_k3s2p1
 libdnnl.so.2:dnnl_post_ops_get_params_eltwise
+libdnnl.so.2:dnnl_post_ops_get_params_prelu
 libdnnl.so.2:dnnl_post_ops_get_params_sum
 libdnnl.so.2:dnnl_post_ops_get_params_sum_v2
+libdnnl.so.2:dnnl_post_ops_get_params_sum_v3
 libdnnl.so.2:dnnl_post_ops_len
 libdnnl.so.2:dnnl_prelu_backward_desc_init
 libdnnl.so.2:dnnl_prelu_forward_desc_init
@@ -139,6 +152,7 @@ libdnnl.so.2:dnnl_prim_kind2str
 libdnnl.so.2:dnnl_primitive_attr_clone
 libdnnl.so.2:dnnl_primitive_attr_create
 libdnnl.so.2:dnnl_primitive_attr_destroy
+libdnnl.so.2:dnnl_primitive_attr_get_fpmath_mode
 libdnnl.so.2:dnnl_primitive_attr_get_output_scales
 libdnnl.so.2:dnnl_primitive_attr_get_post_ops
 libdnnl.so.2:dnnl_primitive_attr_get_rnn_data_qparams
@@ -147,6 +161,7 @@ libdnnl.so.2:dnnl_primitive_attr_get_rnn_weights_qparams
 libdnnl.so.2:dnnl_primitive_attr_get_scales
 libdnnl.so.2:dnnl_primitive_attr_get_scratchpad_mode
 libdnnl.so.2:dnnl_primitive_attr_get_zero_points
+libdnnl.so.2:dnnl_primitive_attr_set_fpmath_mode
 libdnnl.so.2:dnnl_primitive_attr_set_output_scales
 libdnnl.so.2:dnnl_primitive_attr_set_post_ops
 libdnnl.so.2:dnnl_primitive_attr_set_rnn_data_qparams
@@ -180,6 +195,7 @@ libdnnl.so.2:dnnl_rnn_flags2str
 libdnnl.so.2:dnnl_runtime2str
 libdnnl.so.2:dnnl_scratchpad_mode2str
 libdnnl.so.2:dnnl_set_cpu_isa_hints
+libdnnl.so.2:dnnl_set_default_fpmath_mode
 libdnnl.so.2:dnnl_set_jit_dump
 libdnnl.so.2:dnnl_set_jit_profiling_flags
 libdnnl.so.2:dnnl_set_jit_profiling_jitdumpdir
