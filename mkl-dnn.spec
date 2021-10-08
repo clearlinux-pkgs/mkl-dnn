@@ -4,7 +4,7 @@
 #
 Name     : mkl-dnn
 Version  : 2.4
-Release  : 43
+Release  : 44
 URL      : https://github.com/intel/mkl-dnn/archive/v2.4/mkl-dnn-2.4.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v2.4/mkl-dnn-2.4.tar.gz
 Summary  : No detailed summary available
@@ -85,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1633719844
+export SOURCE_DATE_EPOCH=1633724322
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -126,7 +126,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1633719844
+export SOURCE_DATE_EPOCH=1633724322
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
 cp %{_builddir}/oneDNN-2.4/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/57997263de7280824c54d5aa8ac45fdb9d74e897
@@ -135,11 +135,11 @@ cp %{_builddir}/oneDNN-2.4/src/cpu/x64/xbyak/COPYRIGHT %{buildroot}/usr/share/pa
 cp %{_builddir}/oneDNN-2.4/tests/gtests/gtest/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/5a2314153eadadc69258a9429104cd11804ea304
 pushd clr-build-avx2
 %make_install_v3  || :
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/clear/optimized-elf/ %{buildroot}/usr/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 popd
 pushd clr-build-avx512
 %make_install_v4  || :
-/usr/bin/elf-move.py avx512 %{buildroot}-v4 %{buildroot}/usr/clear/optimized-elf/ %{buildroot}/usr/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx512 %{buildroot}-v4 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 popd
 pushd clr-build
 %make_install
@@ -221,13 +221,13 @@ popd
 
 %files filemap
 %defattr(-,root,root,-)
-/usr/clear/filemap/filemap-mkl-dnn
+/usr/share/clear/filemap/filemap-mkl-dnn
 
 %files lib
 %defattr(-,root,root,-)
-/usr/clear/optimized-elf/lib*
 /usr/lib64/libdnnl.so.2
 /usr/lib64/libdnnl.so.2.4
+/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
