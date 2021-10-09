@@ -4,7 +4,7 @@
 #
 Name     : mkl-dnn
 Version  : 2.4
-Release  : 45
+Release  : 46
 URL      : https://github.com/intel/mkl-dnn/archive/v2.4/mkl-dnn-2.4.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v2.4/mkl-dnn-2.4.tar.gz
 Summary  : No detailed summary available
@@ -85,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1633804036
+export SOURCE_DATE_EPOCH=1633823800
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -126,7 +126,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1633804036
+export SOURCE_DATE_EPOCH=1633823800
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
 cp %{_builddir}/oneDNN-2.4/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/57997263de7280824c54d5aa8ac45fdb9d74e897
