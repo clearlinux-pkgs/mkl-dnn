@@ -4,7 +4,7 @@
 #
 Name     : mkl-dnn
 Version  : 2.5.1
-Release  : 53
+Release  : 54
 URL      : https://github.com/intel/mkl-dnn/archive/v2.5.1/mkl-dnn-2.5.1.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v2.5.1/mkl-dnn-2.5.1.tar.gz
 Summary  : No detailed summary available
@@ -13,7 +13,6 @@ License  : Apache-2.0 BSD-3-Clause MIT
 Requires: mkl-dnn-filemap = %{version}-%{release}
 Requires: mkl-dnn-lib = %{version}-%{release}
 Requires: mkl-dnn-license = %{version}-%{release}
-BuildRequires : Sphinx
 BuildRequires : buildreq-cmake
 BuildRequires : cmake
 BuildRequires : doxygen
@@ -24,6 +23,7 @@ BuildRequires : graphviz
 BuildRequires : openblas
 BuildRequires : openblas-dev
 BuildRequires : pkg-config
+BuildRequires : pypi-sphinx
 BuildRequires : python3
 BuildRequires : tbb-dev
 
@@ -85,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1640105558
+export SOURCE_DATE_EPOCH=1641867274
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -126,7 +126,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1640105558
+export SOURCE_DATE_EPOCH=1641867274
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
 cp %{_builddir}/oneDNN-2.5.1/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/57997263de7280824c54d5aa8ac45fdb9d74e897
