@@ -6,6 +6,7 @@ libdnnl.so.2:_ZN4dnnl4impl11parallel_ndElllRKSt8functionIFvlllEE
 libdnnl.so.2:_ZN4dnnl4impl11parallel_ndEllllRKSt8functionIFvllllEE
 libdnnl.so.2:_ZN4dnnl4impl11parallel_ndElllllRKSt8functionIFvlllllEE
 libdnnl.so.2:_ZN4dnnl4impl11parallel_ndEllllllRKSt8functionIFvllllllEE
+libdnnl.so.2:_ZN4dnnl4impl12experimental24use_bnorm_stats_one_passEv
 libdnnl.so.2:_ZN4dnnl4impl14is_pd_in_cacheEPK19dnnl_primitive_desc
 libdnnl.so.2:_ZN4dnnl4impl21is_primitive_in_cacheEPK14dnnl_primitive
 libdnnl.so.2:_ZN4dnnl4impl24get_primitive_cache_sizeEPi
@@ -46,9 +47,18 @@ libdnnl.so.2:_ZN4dnnl4impl3cpu3x643amx12is_availableEv
 libdnnl.so.2:_ZN4dnnl4impl3cpu8platform20prefer_ymm_requestedEv
 libdnnl.so.2:_ZN4dnnl4impl3cpu8platform21has_data_type_supportE16dnnl_data_type_t
 libdnnl.so.2:_ZN4dnnl4impl3cpu8platform25s8s8_weights_scale_factorEv
+libdnnl.so.2:_ZN4dnnl4impl45set_primitive_cache_capacity_without_clearingEm
 libdnnl.so.2:_ZN4dnnl4impl8parallelEiRKSt8functionIFviiEE
 libdnnl.so.2:_ZNK4dnnl4impl10bfloat16_tcvfEv
+libdnnl.so.2:__itt_pt_byte
+libdnnl.so.2:__itt_pt_event
+libdnnl.so.2:__itt_pt_mark
+libdnnl.so.2:__itt_pt_mark_event
+libdnnl.so.2:__itt_pt_mark_threshold
+libdnnl.so.2:__itt_pt_write
 libdnnl.so.2:dnnl_alg_kind2str
+libdnnl.so.2:dnnl_augru_backward_desc_init
+libdnnl.so.2:dnnl_augru_forward_desc_init
 libdnnl.so.2:dnnl_batch_normalization_backward_desc_init
 libdnnl.so.2:dnnl_batch_normalization_forward_desc_init
 libdnnl.so.2:dnnl_binary_desc_init
@@ -94,6 +104,8 @@ libdnnl.so.2:dnnl_inner_product_backward_weights_desc_init
 libdnnl.so.2:dnnl_inner_product_forward_desc_init
 libdnnl.so.2:dnnl_layer_normalization_backward_desc_init
 libdnnl.so.2:dnnl_layer_normalization_forward_desc_init
+libdnnl.so.2:dnnl_lbr_augru_backward_desc_init
+libdnnl.so.2:dnnl_lbr_augru_forward_desc_init
 libdnnl.so.2:dnnl_lbr_gru_backward_desc_init
 libdnnl.so.2:dnnl_lbr_gru_forward_desc_init
 libdnnl.so.2:dnnl_logsoftmax_backward_desc_init
@@ -172,6 +184,7 @@ libdnnl.so.2:dnnl_primitive_attr_set_scales
 libdnnl.so.2:dnnl_primitive_attr_set_scratchpad_mode
 libdnnl.so.2:dnnl_primitive_attr_set_zero_points
 libdnnl.so.2:dnnl_primitive_create
+libdnnl.so.2:dnnl_primitive_create_from_cache_blob
 libdnnl.so.2:dnnl_primitive_desc_clone
 libdnnl.so.2:dnnl_primitive_desc_create
 libdnnl.so.2:dnnl_primitive_desc_destroy
@@ -185,6 +198,7 @@ libdnnl.so.2:dnnl_primitive_desc_query_md
 libdnnl.so.2:dnnl_primitive_desc_query_s32
 libdnnl.so.2:dnnl_primitive_destroy
 libdnnl.so.2:dnnl_primitive_execute
+libdnnl.so.2:dnnl_primitive_get_cache_blob
 libdnnl.so.2:dnnl_primitive_get_primitive_desc
 libdnnl.so.2:dnnl_prop_kind2str
 libdnnl.so.2:dnnl_reduction_desc_init
@@ -208,6 +222,8 @@ libdnnl.so.2:dnnl_shuffle_backward_desc_init
 libdnnl.so.2:dnnl_shuffle_forward_desc_init
 libdnnl.so.2:dnnl_softmax_backward_desc_init
 libdnnl.so.2:dnnl_softmax_forward_desc_init
+libdnnl.so.2:dnnl_softmax_v2_backward_desc_init
+libdnnl.so.2:dnnl_softmax_v2_forward_desc_init
 libdnnl.so.2:dnnl_status2str
 libdnnl.so.2:dnnl_stream_create
 libdnnl.so.2:dnnl_stream_destroy
