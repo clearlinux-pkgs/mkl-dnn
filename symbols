@@ -140,6 +140,7 @@ libdnnl.so.2:dnnl_pooling_forward_desc_init
 libdnnl.so.2:dnnl_pooling_v2_backward_desc_init
 libdnnl.so.2:dnnl_pooling_v2_forward_desc_init
 libdnnl.so.2:dnnl_post_ops_append_binary
+libdnnl.so.2:dnnl_post_ops_append_dw
 libdnnl.so.2:dnnl_post_ops_append_dw_k3s1p1
 libdnnl.so.2:dnnl_post_ops_append_dw_k3s2p1
 libdnnl.so.2:dnnl_post_ops_append_eltwise
@@ -151,6 +152,7 @@ libdnnl.so.2:dnnl_post_ops_create
 libdnnl.so.2:dnnl_post_ops_destroy
 libdnnl.so.2:dnnl_post_ops_get_kind
 libdnnl.so.2:dnnl_post_ops_get_params_binary
+libdnnl.so.2:dnnl_post_ops_get_params_dw
 libdnnl.so.2:dnnl_post_ops_get_params_dw_k3s1p1
 libdnnl.so.2:dnnl_post_ops_get_params_dw_k3s2p1
 libdnnl.so.2:dnnl_post_ops_get_params_eltwise
