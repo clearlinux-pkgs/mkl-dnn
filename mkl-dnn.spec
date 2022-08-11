@@ -4,7 +4,7 @@
 #
 Name     : mkl-dnn
 Version  : 2.6.1
-Release  : 62
+Release  : 63
 URL      : https://github.com/intel/mkl-dnn/archive/v2.6.1/mkl-dnn-2.6.1.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v2.6.1/mkl-dnn-2.6.1.tar.gz
 Summary  : No detailed summary available
