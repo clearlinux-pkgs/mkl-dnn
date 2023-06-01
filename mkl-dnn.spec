@@ -5,7 +5,7 @@
 #
 Name     : mkl-dnn
 Version  : 3.1
-Release  : 78
+Release  : 79
 URL      : https://github.com/intel/mkl-dnn/archive/v3.1/mkl-dnn-3.1.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v3.1/mkl-dnn-3.1.tar.gz
 Summary  : No detailed summary available
@@ -79,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683059487
+export SOURCE_DATE_EPOCH=1685594903
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,7 +120,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1683059487
+export SOURCE_DATE_EPOCH=1685594903
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
 cp %{_builddir}/oneDNN-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/57997263de7280824c54d5aa8ac45fdb9d74e897 || :
@@ -145,8 +145,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libdnnl.so
-/V4/usr/lib64/libdnnl.so
 /usr/include/dnnl.h
 /usr/include/dnnl.hpp
 /usr/include/dnnl_config.h
@@ -219,9 +217,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libdnnl.so.3
 /V3/usr/lib64/libdnnl.so.3.1
-/V4/usr/lib64/libdnnl.so.3
 /V4/usr/lib64/libdnnl.so.3.1
 /usr/lib64/libdnnl.so.3
 /usr/lib64/libdnnl.so.3.1
