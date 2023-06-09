@@ -4,10 +4,10 @@
 # Using build pattern: cmake
 #
 Name     : mkl-dnn
-Version  : 3.1
-Release  : 79
-URL      : https://github.com/intel/mkl-dnn/archive/v3.1/mkl-dnn-3.1.tar.gz
-Source0  : https://github.com/intel/mkl-dnn/archive/v3.1/mkl-dnn-3.1.tar.gz
+Version  : 3.1.1
+Release  : 80
+URL      : https://github.com/intel/mkl-dnn/archive/v3.1.1/mkl-dnn-3.1.1.tar.gz
+Source0  : https://github.com/intel/mkl-dnn/archive/v3.1.1/mkl-dnn-3.1.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause MIT
@@ -71,15 +71,15 @@ license components for the mkl-dnn package.
 
 
 %prep
-%setup -q -n oneDNN-3.1
-cd %{_builddir}/oneDNN-3.1
+%setup -q -n oneDNN-3.1.1
+cd %{_builddir}/oneDNN-3.1.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685594903
+export SOURCE_DATE_EPOCH=1686325618
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,7 +120,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1685594903
+export SOURCE_DATE_EPOCH=1686325618
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
 cp %{_builddir}/oneDNN-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/57997263de7280824c54d5aa8ac45fdb9d74e897 || :
