@@ -4,13 +4,13 @@
 # Using build pattern: cmake
 #
 Name     : mkl-dnn
-Version  : 3.1.1
-Release  : 80
-URL      : https://github.com/intel/mkl-dnn/archive/v3.1.1/mkl-dnn-3.1.1.tar.gz
-Source0  : https://github.com/intel/mkl-dnn/archive/v3.1.1/mkl-dnn-3.1.1.tar.gz
+Version  : 3.2
+Release  : 81
+URL      : https://github.com/intel/mkl-dnn/archive/v3.2/mkl-dnn-3.2.tar.gz
+Source0  : https://github.com/intel/mkl-dnn/archive/v3.2/mkl-dnn-3.2.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : Apache-2.0 BSD-3-Clause MIT
+License  : BSD-3-Clause MIT
 Requires: mkl-dnn-lib = %{version}-%{release}
 Requires: mkl-dnn-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
@@ -20,6 +20,7 @@ BuildRequires : eigen-data
 BuildRequires : git
 BuildRequires : glibc-dev
 BuildRequires : graphviz
+BuildRequires : llvm-dev
 BuildRequires : openblas
 BuildRequires : openblas-dev
 BuildRequires : pkg-config
@@ -71,15 +72,15 @@ license components for the mkl-dnn package.
 
 
 %prep
-%setup -q -n oneDNN-3.1.1
-cd %{_builddir}/oneDNN-3.1.1
+%setup -q -n oneDNN-3.2
+cd %{_builddir}/oneDNN-3.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1686325618
+export SOURCE_DATE_EPOCH=1687794122
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,10 +121,9 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1686325618
+export SOURCE_DATE_EPOCH=1687794122
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
-cp %{_builddir}/oneDNN-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/57997263de7280824c54d5aa8ac45fdb9d74e897 || :
 cp %{_builddir}/oneDNN-%{version}/src/common/ittnotify/LICENSE.BSD %{buildroot}/usr/share/package-licenses/mkl-dnn/be8f76850d5fd6458ff339a1a7df86bbec3e5366 || :
 cp %{_builddir}/oneDNN-%{version}/src/cpu/x64/xbyak/COPYRIGHT %{buildroot}/usr/share/package-licenses/mkl-dnn/59ecdb87df571ebd03bc505a75344cc6f49626e8 || :
 cp %{_builddir}/oneDNN-%{version}/src/gpu/jit/ngen/COPYRIGHT %{buildroot}/usr/share/package-licenses/mkl-dnn/f9e3463caf9d198d7748315d5fcada9e89d43585 || :
@@ -217,14 +217,13 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libdnnl.so.3.1
-/V4/usr/lib64/libdnnl.so.3.1
+/V3/usr/lib64/libdnnl.so.3.2
+/V4/usr/lib64/libdnnl.so.3.2
 /usr/lib64/libdnnl.so.3
-/usr/lib64/libdnnl.so.3.1
+/usr/lib64/libdnnl.so.3.2
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/mkl-dnn/57997263de7280824c54d5aa8ac45fdb9d74e897
 /usr/share/package-licenses/mkl-dnn/59ecdb87df571ebd03bc505a75344cc6f49626e8
 /usr/share/package-licenses/mkl-dnn/5a2314153eadadc69258a9429104cd11804ea304
 /usr/share/package-licenses/mkl-dnn/be8f76850d5fd6458ff339a1a7df86bbec3e5366

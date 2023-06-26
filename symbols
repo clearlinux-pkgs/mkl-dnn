@@ -232,10 +232,12 @@ libdnnl.so.3:dnnl_primitive_execute
 libdnnl.so.3:dnnl_primitive_get_cache_blob
 libdnnl.so.3:dnnl_primitive_get_primitive_desc
 libdnnl.so.3:dnnl_prop_kind2str
+libdnnl.so.3:dnnl_query_profiling_data
 libdnnl.so.3:dnnl_reduction_primitive_desc_create
 libdnnl.so.3:dnnl_reorder_primitive_desc_create
 libdnnl.so.3:dnnl_resampling_backward_primitive_desc_create
 libdnnl.so.3:dnnl_resampling_forward_primitive_desc_create
+libdnnl.so.3:dnnl_reset_profiling
 libdnnl.so.3:dnnl_rnn_direction2str
 libdnnl.so.3:dnnl_rnn_flags2str
 libdnnl.so.3:dnnl_runtime2str
