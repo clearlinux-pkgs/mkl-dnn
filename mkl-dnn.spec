@@ -4,13 +4,13 @@
 # Using build pattern: cmake
 #
 Name     : mkl-dnn
-Version  : 3.2
-Release  : 81
-URL      : https://github.com/intel/mkl-dnn/archive/v3.2/mkl-dnn-3.2.tar.gz
-Source0  : https://github.com/intel/mkl-dnn/archive/v3.2/mkl-dnn-3.2.tar.gz
+Version  : 3.2.1
+Release  : 82
+URL      : https://github.com/intel/mkl-dnn/archive/v3.2.1/mkl-dnn-3.2.1.tar.gz
+Source0  : https://github.com/intel/mkl-dnn/archive/v3.2.1/mkl-dnn-3.2.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : BSD-3-Clause MIT
+License  : Apache-2.0 BSD-3-Clause MIT
 Requires: mkl-dnn-lib = %{version}-%{release}
 Requires: mkl-dnn-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
@@ -72,15 +72,15 @@ license components for the mkl-dnn package.
 
 
 %prep
-%setup -q -n oneDNN-3.2
-cd %{_builddir}/oneDNN-3.2
+%setup -q -n oneDNN-3.2.1
+cd %{_builddir}/oneDNN-3.2.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1687794122
+export SOURCE_DATE_EPOCH=1691160356
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -121,9 +121,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1687794122
+export SOURCE_DATE_EPOCH=1691160356
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
+cp %{_builddir}/oneDNN-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/9380b922e0913dbe94d8be4c34154d91734304dc || :
 cp %{_builddir}/oneDNN-%{version}/src/common/ittnotify/LICENSE.BSD %{buildroot}/usr/share/package-licenses/mkl-dnn/be8f76850d5fd6458ff339a1a7df86bbec3e5366 || :
 cp %{_builddir}/oneDNN-%{version}/src/cpu/x64/xbyak/COPYRIGHT %{buildroot}/usr/share/package-licenses/mkl-dnn/59ecdb87df571ebd03bc505a75344cc6f49626e8 || :
 cp %{_builddir}/oneDNN-%{version}/src/gpu/jit/ngen/COPYRIGHT %{buildroot}/usr/share/package-licenses/mkl-dnn/f9e3463caf9d198d7748315d5fcada9e89d43585 || :
@@ -226,5 +227,6 @@ popd
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/mkl-dnn/59ecdb87df571ebd03bc505a75344cc6f49626e8
 /usr/share/package-licenses/mkl-dnn/5a2314153eadadc69258a9429104cd11804ea304
+/usr/share/package-licenses/mkl-dnn/9380b922e0913dbe94d8be4c34154d91734304dc
 /usr/share/package-licenses/mkl-dnn/be8f76850d5fd6458ff339a1a7df86bbec3e5366
 /usr/share/package-licenses/mkl-dnn/f9e3463caf9d198d7748315d5fcada9e89d43585
