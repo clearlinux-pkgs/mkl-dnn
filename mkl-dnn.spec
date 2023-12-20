@@ -6,10 +6,10 @@
 # autospec commit: c1050fe
 #
 Name     : mkl-dnn
-Version  : 3.3.2
-Release  : 86
-URL      : https://github.com/intel/mkl-dnn/archive/v3.3.2/mkl-dnn-3.3.2.tar.gz
-Source0  : https://github.com/intel/mkl-dnn/archive/v3.3.2/mkl-dnn-3.3.2.tar.gz
+Version  : 3.3.3
+Release  : 87
+URL      : https://github.com/intel/mkl-dnn/archive/v3.3.3/mkl-dnn-3.3.3.tar.gz
+Source0  : https://github.com/intel/mkl-dnn/archive/v3.3.3/mkl-dnn-3.3.3.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause MIT
@@ -74,15 +74,15 @@ license components for the mkl-dnn package.
 
 
 %prep
-%setup -q -n oneDNN-3.3.2
-cd %{_builddir}/oneDNN-3.3.2
+%setup -q -n oneDNN-3.3.3
+cd %{_builddir}/oneDNN-3.3.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1702035461
+export SOURCE_DATE_EPOCH=1703114261
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -152,7 +152,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1702035461
+export SOURCE_DATE_EPOCH=1703114261
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
 cp %{_builddir}/oneDNN-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/9380b922e0913dbe94d8be4c34154d91734304dc || :
