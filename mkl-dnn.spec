@@ -6,10 +6,10 @@
 # autospec commit: e738c51
 #
 Name     : mkl-dnn
-Version  : 3.3.5
-Release  : 89
-URL      : https://github.com/intel/mkl-dnn/archive/v3.3.5/mkl-dnn-3.3.5.tar.gz
-Source0  : https://github.com/intel/mkl-dnn/archive/v3.3.5/mkl-dnn-3.3.5.tar.gz
+Version  : 3.4
+Release  : 90
+URL      : https://github.com/intel/mkl-dnn/archive/v3.4/mkl-dnn-3.4.tar.gz
+Source0  : https://github.com/intel/mkl-dnn/archive/v3.4/mkl-dnn-3.4.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause MIT
@@ -74,15 +74,15 @@ license components for the mkl-dnn package.
 
 
 %prep
-%setup -q -n oneDNN-3.3.5
-cd %{_builddir}/oneDNN-3.3.5
+%setup -q -n oneDNN-3.4
+cd %{_builddir}/oneDNN-3.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1709228970
+export SOURCE_DATE_EPOCH=1709321755
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -155,7 +155,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1709228970
+export SOURCE_DATE_EPOCH=1709321755
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
 cp %{_builddir}/oneDNN-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/9380b922e0913dbe94d8be4c34154d91734304dc || :
@@ -256,10 +256,10 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libdnnl.so.3.3
-/V4/usr/lib64/libdnnl.so.3.3
+/V3/usr/lib64/libdnnl.so.3.4
+/V4/usr/lib64/libdnnl.so.3.4
 /usr/lib64/libdnnl.so.3
-/usr/lib64/libdnnl.so.3.3
+/usr/lib64/libdnnl.so.3.4
 
 %files license
 %defattr(0644,root,root,0755)
