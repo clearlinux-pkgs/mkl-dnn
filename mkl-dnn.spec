@@ -7,7 +7,7 @@
 #
 Name     : mkl-dnn
 Version  : 3.6
-Release  : 99
+Release  : 100
 URL      : https://github.com/intel/mkl-dnn/archive/v3.6/mkl-dnn-3.6.tar.gz
 Source0  : https://github.com/intel/mkl-dnn/archive/v3.6/mkl-dnn-3.6.tar.gz
 Summary  : No detailed summary available
