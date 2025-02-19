@@ -1,5 +1,5 @@
 PKG_NAME := mkl-dnn
-URL = https://github.com/intel/mkl-dnn/archive/v3.6.2/mkl-dnn-3.6.2.tar.gz
+URL = https://github.com/oneapi-src/oneDNN/archive/v3.7/oneDNN-3.7.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
