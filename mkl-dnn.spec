@@ -6,10 +6,10 @@
 # autospec commit: 9594167
 #
 Name     : mkl-dnn
-Version  : 3.7.3
-Release  : 105
-URL      : https://github.com/oneapi-src/oneDNN/archive/v3.7.3/oneDNN-3.7.3.tar.gz
-Source0  : https://github.com/oneapi-src/oneDNN/archive/v3.7.3/oneDNN-3.7.3.tar.gz
+Version  : 3.8
+Release  : 106
+URL      : https://github.com/oneapi-src/oneDNN/archive/v3.8/oneDNN-3.8.tar.gz
+Source0  : https://github.com/oneapi-src/oneDNN/archive/v3.8/oneDNN-3.8.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause MIT
@@ -22,7 +22,6 @@ BuildRequires : eigen-data
 BuildRequires : git
 BuildRequires : glibc-dev
 BuildRequires : graphviz
-BuildRequires : llvm-dev
 BuildRequires : openblas
 BuildRequires : openblas-dev
 BuildRequires : pkg-config
@@ -73,13 +72,13 @@ license components for the mkl-dnn package.
 
 
 %prep
-%setup -q -n oneDNN-3.7.3
-cd %{_builddir}/oneDNN-3.7.3
+%setup -q -n oneDNN-3.8
+cd %{_builddir}/oneDNN-3.8
 pushd ..
-cp -a oneDNN-3.7.3 buildavx2
+cp -a oneDNN-3.8 buildavx2
 popd
 pushd ..
-cp -a oneDNN-3.7.3 buildavx512
+cp -a oneDNN-3.8 buildavx512
 popd
 
 %build
@@ -87,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1745265965
+export SOURCE_DATE_EPOCH=1747066933
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -164,14 +163,14 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1745265965
+export SOURCE_DATE_EPOCH=1747066933
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mkl-dnn
 cp %{_builddir}/oneDNN-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/9380b922e0913dbe94d8be4c34154d91734304dc || :
-cp %{_builddir}/oneDNN-%{version}/src/common/ittnotify/LICENSE.BSD %{buildroot}/usr/share/package-licenses/mkl-dnn/be8f76850d5fd6458ff339a1a7df86bbec3e5366 || :
-cp %{_builddir}/oneDNN-%{version}/src/cpu/x64/xbyak/COPYRIGHT %{buildroot}/usr/share/package-licenses/mkl-dnn/59ecdb87df571ebd03bc505a75344cc6f49626e8 || :
-cp %{_builddir}/oneDNN-%{version}/src/gpu/intel/jit/ngen/COPYRIGHT %{buildroot}/usr/share/package-licenses/mkl-dnn/f9e3463caf9d198d7748315d5fcada9e89d43585 || :
-cp %{_builddir}/oneDNN-%{version}/tests/gtests/gtest/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/5a2314153eadadc69258a9429104cd11804ea304 || :
+cp %{_builddir}/oneDNN-%{version}/third_party/gtest/LICENSE %{buildroot}/usr/share/package-licenses/mkl-dnn/5a2314153eadadc69258a9429104cd11804ea304 || :
+cp %{_builddir}/oneDNN-%{version}/third_party/ittnotify/LICENSE.BSD %{buildroot}/usr/share/package-licenses/mkl-dnn/be8f76850d5fd6458ff339a1a7df86bbec3e5366 || :
+cp %{_builddir}/oneDNN-%{version}/third_party/ngen/COPYRIGHT %{buildroot}/usr/share/package-licenses/mkl-dnn/f9e3463caf9d198d7748315d5fcada9e89d43585 || :
+cp %{_builddir}/oneDNN-%{version}/third_party/xbyak/COPYRIGHT %{buildroot}/usr/share/package-licenses/mkl-dnn/59ecdb87df571ebd03bc505a75344cc6f49626e8 || :
 export GOAMD64=v2
 pushd ../buildavx2/
 GOAMD64=v3
@@ -254,6 +253,7 @@ popd
 /usr/share/doc/dnnl/reference/rst/bf16_programming.jpg
 /usr/share/doc/dnnl/reference/rst/compressed_sdpa_pattern.png
 /usr/share/doc/dnnl/reference/rst/conf.py
+/usr/share/doc/dnnl/reference/rst/favicons.png
 /usr/share/doc/dnnl/reference/rst/fp-gated-mlp.png
 /usr/share/doc/dnnl/reference/rst/gated-mlp-swish.png
 /usr/share/doc/dnnl/reference/rst/gqa.png
@@ -274,6 +274,7 @@ popd
 /usr/share/doc/dnnl/reference/rst/mem_fmt_img1.png
 /usr/share/doc/dnnl/reference/rst/mem_fmt_img2.png
 /usr/share/doc/dnnl/reference/rst/mem_fmt_padded_blk.png
+/usr/share/doc/dnnl/reference/rst/oneAPI-rgb-rev-100.png
 /usr/share/doc/dnnl/reference/rst/sdpa-mask-1.png
 /usr/share/doc/dnnl/reference/rst/sdpa-mask-2.png
 /usr/share/doc/dnnl/reference/rst/sdpa-mask-3.png
@@ -284,10 +285,10 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libdnnl.so.3.7
-/V4/usr/lib64/libdnnl.so.3.7
+/V3/usr/lib64/libdnnl.so.3.8
+/V4/usr/lib64/libdnnl.so.3.8
 /usr/lib64/libdnnl.so.3
-/usr/lib64/libdnnl.so.3.7
+/usr/lib64/libdnnl.so.3.8
 
 %files license
 %defattr(0644,root,root,0755)
